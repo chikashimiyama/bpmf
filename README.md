@@ -1,5 +1,5 @@
 # FilterWithBPM (Udacity C++ Capstone project)
-bpmfilter is a command line tool that checks the BPM (Beat Per Minutes / the tempo of the song) of multiple mp3 audio files and filter the files whose BPM is outside the range of BPM the user specifies.
+bpmf is a command line tool that checks the BPM (Beat Per Minutes / the tempo of the song) of multiple mp3 audio files and filter the files whose BPM is outside the range of BPM the user specifies.
 
 
 # Motivation
