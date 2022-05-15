@@ -1,0 +1,9 @@
+[submodule "dependencies/minibpm"]
+	path = dependencies/minibpm
+	url = https://github.com/breakfastquay/minibpm.git
+[submodule "dependencies/googletest"]
+	path = dependencies/googletest
+	url = https://github.com/google/googletest.git
+[submodule "dependencies/dr_libs"]
+	path = dependencies/dr_libs
+	url = https://github.com/mackron/dr_libs.git
