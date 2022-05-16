@@ -11,7 +11,8 @@ namespace bpmf::core
         {
             const auto itr = std::find(arguments.cbegin(), arguments.cend(), "-v");
             const auto found = itr != arguments.cend();
-            arguments.erase(itr);
+            if(found)
+                arguments.erase(itr);
             return found;
         }
 
@@ -32,8 +33,7 @@ namespace bpmf::core
         }
     }
 
-
-    Configuration parse(int argc, char **argv)
+    Configuration parse(int argc, const char** argv)
     {
         auto arguments = std::vector<std::string>();
         for(auto i = 0; i < argc; i++)
@@ -44,7 +44,7 @@ namespace bpmf::core
         auto verbose = findVerbose(arguments);
         auto threadCount = findThreadCount(arguments);
 
-        if(argc < 3)
+        if(argc <= 3)
             return Configuration{};
 
         const auto minBPM = std::stoi(arguments[0]);
@@ -55,7 +55,8 @@ namespace bpmf::core
             files.emplace_back(std::filesystem::path(arg));
         });
 
-        return Configuration{ verbose,
+        return Configuration{ true,
+                              verbose,
                               threadCount.has_value() ? threadCount.value() : 4,
                               static_cast<size_t>(minBPM),
                               static_cast<size_t>(maxBPM),
