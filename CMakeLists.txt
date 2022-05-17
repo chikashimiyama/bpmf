@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 
 project(bpmf)
+find_package(Boost COMPONENTS program_options REQUIRED)
+
 
 add_subdirectory(dependencies)
 add_subdirectory(core)

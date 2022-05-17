@@ -1,17 +1,22 @@
 #include <iostream>
 
-#include "Track.h"
-#include "Analyzer.h"
-#include <bpmfcore/Utils.h>
+#include "bpmfcore/Main.h"
+#include "Factory.h"
+
+using namespace bpmf;
 
 int main(int argc, char** argv)
 {
-    auto path = std::filesystem::path(argv[1]);
-    auto track = bpmf::Track(path);
-    auto audio = track.getAudio();
-    auto analyzer = bpmf::Analyzer(audio.sampleRate, audio.samples);
+    std::string instruction;
+    const auto configuration = core::parse(argc, argv, instruction);
+    if(!configuration.has_value())
+    {
+        std::cout << instruction << std::endl;
+        return 1;
+    }
 
-    if(analyzer.getBPM().has_value())
-      std::cout << analyzer.getBPM().value()<< std::endl;
+    const auto factory = Factory();
+    const auto results = core::process(configuration.value(), factory);
+    std::cout << core::print(configuration.value(), results, factory) << std::endl;
     return 0;
 }

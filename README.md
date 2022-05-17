@@ -1,6 +1,8 @@
 # bpmf (Udacity C++ Capstone project)
 bpmf is a command line tool that checks the BPM (Beat Per Minutes / the tempo of the song) of multiple mp3 audio files and filter the files whose BPM is outside the range of BPM the user specifies.
 
+sudo apt-get install libboost-program-options-dev
+
 ## Warning
 The project has to be compiled with gcc-9 or later because
 gcc-8 has a [bug in std::filesytem](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90050).  

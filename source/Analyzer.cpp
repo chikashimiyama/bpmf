@@ -4,10 +4,11 @@
 
 namespace bpmf
 {
-    Analyzer::Analyzer(float sampleRate, const std::vector<float>& samples)
+    Analyzer::Analyzer(const core::ITrack& track)
     {
-        auto miniBpm = breakfastquay::MiniBPM(sampleRate);
+        auto miniBpm = breakfastquay::MiniBPM(track.getSampleRate());
         miniBpm.setBPMRange(50, 190);
+        const auto& samples = track.getSamples();
         auto result = miniBpm.estimateTempoOfSamples(samples.data(), static_cast<int>(samples.size()));
         if(result == 0.0)
             result_ = std::nullopt;

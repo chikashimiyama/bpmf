@@ -12,9 +12,12 @@ namespace bpmf
 
         ~Track() override = default;
 
-        const Audio& getAudio() const override;
+        const std::vector<float>& getSamples() const override;
+
+        float getSampleRate() const override;
 
     private:
-        const Audio audio_;
+        std::vector<float> samples_;
+        float sampleRate_;
     };
 }

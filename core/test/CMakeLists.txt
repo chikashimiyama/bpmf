@@ -1,7 +1,7 @@
 
 add_executable(bpmfTestHost
-        source/AnalyzerTestCase.cpp
-        source/ParserTestCase.cpp
+        source/TaskTestCase.cpp
+        source/MainTestCase.cpp
         )
 
 target_link_libraries(

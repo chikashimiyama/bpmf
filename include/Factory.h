@@ -9,8 +9,13 @@ namespace bpmf
     public:
         ~Factory() override = default;
 
-        core::AnalyzerPtr createAnalyzer(float sampleRate, const std::vector<float>& samples) const override;
+        core::AnalyzerPtr createAnalyzer(const core::ITrack& track) const override;
 
         core::TrackPtr createTrack(const std::filesystem::path& path) const override;
+
+        core::FilePathValidatorPtr createFilePathValidator(const std::string &file) const override;
+
+        core::PrinterPtr createVerbosePrinter(const std::vector<core::Result>& results) const override;
+
     };
 }

@@ -8,15 +8,12 @@ namespace bpmf::core
     class ITrack
     {
     public:
-        struct Audio
-        {
-            float sampleRate;
-            std::vector<float> samples;
-        };
 
         virtual ~ITrack() = default;
 
-        virtual const Audio& getAudio() const = 0;
+        virtual float getSampleRate() const = 0;
+
+        virtual const std::vector<float>& getSamples() const = 0;
     };
 
     using TrackPtr = std::unique_ptr<ITrack>;
