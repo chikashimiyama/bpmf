@@ -12,6 +12,30 @@ This tool analyzes the audio data in mp3 files and detect the tempo and filters 
 
 > sudo apt-get install libboost-program-options-dev
 
+## Rubric Points
+
+- The project demonstrates an understanding of C++ functions and control structures.
+- The project reads data from a file and process the data, or the program writes data to a file.
+- The project accepts user input and processes the input.
+- The project uses Object Oriented Programming techniques.
+- Classes use appropriate access specifiers for class members.
+- Class constructors utilize member initialization lists.
+- Classes abstract implementation details from their interfaces.
+- Classes encapsulate behavior.
+- Derived class functions override virtual base class functions.
+- The project makes use of references in function declarations.
+- The project uses move semantics to move data, instead of copying it, where possible.
+- The project uses smart pointers instead of raw pointers.
+- The project uses multithreading.
+- A mutex or lock is used in the project.
+
+
+
+
+
+
+
+
 ## Warning
 The project has to be compiled with gcc-9 or later because
 gcc-8 has a [bug in std::filesytem](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90050).  
@@ -24,6 +48,20 @@ This project is tested on Ubuntu 20.04 LTS
 
 ## Usage
 
+> bpmf 100 120 /path/to/your/music_collection/*.mp3
+
+will output lists of songs whose bpm is within 100 and 120
+
+> bpmf -v 100 120 /path/to/your/music_collection/*.mp3
+
+will output BPM of all files given 
+
+> mkdir extract  
+> bpmf -v 100 120  /path/to/your/music_collection/*.mp3 | xarg -I mp3 cp mp3 extract
+
+will cp only the mp3 files whose BPM is within the range of 100 and to "extract" folder.
+
+for details
 > bpmf --help
 
 ## File Structure

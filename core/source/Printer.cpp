@@ -21,7 +21,7 @@ namespace bpmf::core
 
             const auto estimatedBPM = result.estimatedBPM.value();
             if(bpmRange_.min < estimatedBPM && estimatedBPM< bpmRange_.max && result.path.has_value())
-                ss << result.path.value() << " ";
+                ss << result.path.value();
         }
         return ss.str();
     }
