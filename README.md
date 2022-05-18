@@ -2,8 +2,8 @@
 bpmf is a command line tool that checks the BPM (Beat Per Minutes / the tempo of the song) of multiple mp3 audio files and filter out the files whose BPM is outside the range of BPM the user specifies.
 
 ## Motivation
-I will be a very cumbersome work if you want to select only the songs whose tempo (i.e. BPM) is between 125 and 140 from your large collection of mp3 files.  
-This tool analyzes the audio data in mp3 files and detect the tempo and filters only the songs whose BPM is within the range you specify. In other words, this tool helps you to create a playlist for your next dance party!
+It will be a very cumbersome work if you want to select only the tracks whose tempo (i.e. BPM) is between 125 and 140 from your large collection of mp3 files.  
+This tool analyzes the audio data in mp3 files and detect the tempo and filters only the tracks whose BPM is within the range you specify. In other words, this tool helps you to create a playlist for your next dance party!
 
 ## Dependencies
 - libboost-program-options-dev for parsing command line options

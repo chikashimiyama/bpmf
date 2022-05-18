@@ -4,6 +4,7 @@ add_library(bpmfcore STATIC
         source/Task.cpp
         source/Main.cpp
         source/FilePathValidator.cpp
+        source/Printer.cpp
         source/VerbosePrinter.cpp
         )
 

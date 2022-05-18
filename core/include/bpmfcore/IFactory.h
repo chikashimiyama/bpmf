@@ -7,6 +7,7 @@
 #include "IFilePathValidator.h"
 #include "IPrinter.h"
 #include "Result.h"
+#include "Configuration.h"
 
 namespace bpmf::core
 {
@@ -21,7 +22,8 @@ namespace bpmf::core
 
         virtual AnalyzerPtr createAnalyzer(const ITrack& track) const = 0;
 
-        virtual PrinterPtr createVerbosePrinter(const std::vector<Result>& results) const = 0;
+        virtual PrinterPtr createVerbosePrinter(const std::vector<Result> &results, const BPMRange& bpmRange) const = 0;
 
+        virtual PrinterPtr createPrinter(const std::vector<Result> &result, const BPMRange& bpmRange) const = 0;
     };
 }

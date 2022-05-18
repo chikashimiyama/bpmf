@@ -6,11 +6,16 @@
 
 namespace bpmf::core
 {
+    struct BPMRange
+    {
+        const size_t min;
+        const size_t max;
+    };
+
     struct Configuration
     {
         const bool verbose;
-        const size_t minBPM;
-        const size_t maxBPM;
+        const BPMRange bpmRange;
         const std::queue<std::string> paths;
     };
 }

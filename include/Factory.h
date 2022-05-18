@@ -15,7 +15,8 @@ namespace bpmf
 
         core::FilePathValidatorPtr createFilePathValidator(const std::string &file) const override;
 
-        core::PrinterPtr createVerbosePrinter(const std::vector<core::Result>& results) const override;
+        core::PrinterPtr createVerbosePrinter(const std::vector<core::Result> &results, const core::BPMRange& bpmRange) const override;
 
+        core::PrinterPtr createPrinter(const std::vector<core::Result> &result, const core::BPMRange& bpmRange) const override;
     };
 }

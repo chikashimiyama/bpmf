@@ -2,6 +2,8 @@
 
 #include <bpmfcore/FilePathValidator.h>
 #include <bpmfcore/VerbosePrinter.h>
+#include <bpmfcore/Printer.h>
+
 #include "Analyzer.h"
 #include "Track.h"
 
@@ -22,8 +24,13 @@ namespace bpmf
         return std::make_unique<core::FilePathValidator>(file);
     }
 
-    core::PrinterPtr Factory::createVerbosePrinter(const std::vector<core::Result>& results) const
+    core::PrinterPtr Factory::createVerbosePrinter(const std::vector<core::Result> &results, const core::BPMRange &bpmRange) const
     {
-        return std::make_unique<core::VerbosePrinter>(results);
+        return std::make_unique<core::VerbosePrinter>(results, bpmRange);
+    }
+
+    core::PrinterPtr Factory::createPrinter(const std::vector<core::Result> &results, const core::BPMRange &bpmRange) const
+    {
+        return std::make_unique<core::Printer>(results, bpmRange);
     }
 }

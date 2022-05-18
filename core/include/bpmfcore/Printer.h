@@ -8,17 +8,17 @@
 
 namespace bpmf::core
 {
-    class VerbosePrinter : public IPrinter
+    class Printer : public IPrinter
     {
     public:
-        explicit VerbosePrinter(const std::vector<Result>& results, const BPMRange& bpmRange);
+        explicit Printer(const std::vector<Result>& results, const BPMRange& bpmRange);
 
-        ~VerbosePrinter() override = default;
+        ~Printer() override = default;
 
         std::string print() const override;
 
     private:
-        const std::vector<Result>& results_;
         const BPMRange bpmRange_;
+        const std::vector<Result>& results_;
     };
 }

@@ -60,8 +60,7 @@ namespace bpmf::core
 
         return core::Configuration{
             verbose,
-            static_cast<size_t>(range[0]),
-            static_cast<size_t>(range[1]),
+            {static_cast<size_t>(range[0]), static_cast<size_t>(range[1])},
             std::queue<std::string>(std::deque<std::string>(paths.cbegin(), paths.cend()))
         };
     }
@@ -106,9 +105,11 @@ namespace bpmf::core
         return results;
     }
 
-    std::string print(const Configuration& configuration, const std::vector<Result>& results, const IFactory& factory)
+    std::string print(const Configuration& configuration,
+                      const std::vector<Result>& results, const IFactory& factory)
     {
-        const auto printer = factory.createVerbosePrinter(results);
+        const auto printer = configuration.verbose ? factory.createVerbosePrinter(results, configuration.bpmRange)
+                                                   : factory.createPrinter(results, configuration.bpmRange);
         return printer->print();
     }
 }
