@@ -15,10 +15,9 @@ namespace bpmf::core
 
         EXPECT_TRUE(configuration.has_value());
         EXPECT_FALSE(configuration.value().verbose);
-        EXPECT_EQ(30, configuration.value().minBPM);
-        EXPECT_EQ(100, configuration.value().maxBPM);
-        EXPECT_EQ("/path/to/mp3", configuration.value().paths[0]);
-        EXPECT_EQ("/working/dir", configuration.value().applicationPath);
+        EXPECT_EQ(30, configuration.value().bpmRange.min);
+        EXPECT_EQ(100, configuration.value().bpmRange.max);
+        EXPECT_EQ("/path/to/mp3", configuration.value().paths.front());
         EXPECT_TRUE(instruction.size() > 0);
     }
 
@@ -30,10 +29,9 @@ namespace bpmf::core
 
         EXPECT_TRUE(configuration.has_value());
         EXPECT_FALSE(configuration.value().verbose);
-        EXPECT_EQ(30, configuration.value().minBPM);
-        EXPECT_EQ(100, configuration.value().maxBPM);
+        EXPECT_EQ(30, configuration.value().bpmRange.min);
+        EXPECT_EQ(100, configuration.value().bpmRange.max);
         EXPECT_EQ(2, configuration.value().paths.size());
-        EXPECT_EQ("/working/dir", configuration.value().applicationPath);
         EXPECT_TRUE(instruction.size() > 0);
     }
 
@@ -45,10 +43,9 @@ namespace bpmf::core
 
         EXPECT_TRUE(configuration.has_value());
         EXPECT_TRUE(configuration.value().verbose);
-        EXPECT_EQ(30, configuration.value().minBPM);
-        EXPECT_EQ(100, configuration.value().maxBPM);
-        EXPECT_EQ("/path/to/mp3", configuration.value().paths[0]);
-        EXPECT_EQ("/working/dir", configuration.value().applicationPath);
+        EXPECT_EQ(30, configuration.value().bpmRange.min);
+        EXPECT_EQ(100, configuration.value().bpmRange.max);
+        EXPECT_EQ("/path/to/mp3", configuration.value().paths.front());
         EXPECT_TRUE(instruction.size() > 0);
     }
 

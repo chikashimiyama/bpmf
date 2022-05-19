@@ -19,7 +19,7 @@ namespace bpmf::core
         const auto analyzer = factory_.createAnalyzer(*track);
         const auto bpm = analyzer->getBPM();
 
-        return { file_, filePath, analyzer->getBPM() };
+        return { file_, filePath, bpm };
     }
 }
 

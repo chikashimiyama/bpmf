@@ -10,7 +10,7 @@
 
 namespace bpmf::core
 {
-        std::optional<Configuration> parse(int argc, const char* const* argv, std::string& instruction)
+    std::optional<Configuration> parse(int argc, const char* const* argv, std::string& instruction)
     {
         using namespace boost::program_options;
 

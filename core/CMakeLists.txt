@@ -1,4 +1,5 @@
 add_subdirectory(test)
+add_subdirectory(mocks)
 
 add_library(bpmfcore STATIC
         source/Task.cpp
