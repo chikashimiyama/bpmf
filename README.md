@@ -8,7 +8,7 @@ This tool analyzes the audio data in mp3 files and detect the tempo and filters 
 ## Building (Tested on Ubuntu 20.04 LTS)
 
 > sudo apt-get install libboost-program-options-dev  
-> git clone --recurse-submodules https://github.com/chikashimiyama/bpmf.git
+> git clone --recurse-submodules https://github.com/chikashimiyama/bpmf.git  
 > cd bpmf  
 > mkdir build  
 > cd build   
