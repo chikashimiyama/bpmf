@@ -12,18 +12,38 @@ This tool analyzes the audio data in mp3 files and detect the tempo and filters 
 > cd bpmf  
 > mkdir build  
 > cd build   
-> cmake -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9 ..  
+> cmake .. -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9   
 > cmake --build .  
 
 then you should be able to find bpmf binary in the build directory.  
 Note: we need to use gcc-9 because gcc-8 has a  [bug in std::filesytem](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=90050) 
 
 ## Test the functionality with audio samples
-in the build folder
+audiosamples directory contains three mp3 files that contains the same drumloops with three different BPMs.
+You can check the functionality of the program using those files.
+
+To do this, in the build folder
 
 > ./bpmf -v 120 140 ../audiosamples/*.mp3
 
 you will see in the terminal estimated BPM of each mp3 files and whether the files meet the criteria (BPM between 120 and 140)
+
+    --------------------------
+            Input: ../audiosamples/house_BPM160.mp3
+    Abs file path: /home/chikashi/Development/bpmf/build/../audiosamples/house_BPM160.mp3
+    Estimated BPM: 159
+    --------------------------
+            Input: ../audiosamples/house_BPM125.mp3
+    Abs file path: /home/chikashi/Development/bpmf/build/../audiosamples/house_BPM125.mp3
+    Estimated BPM: 125
+    --------------------------
+            Input: ../audiosamples/house_BPM90.mp3
+    Abs file path: /home/chikashi/Development/bpmf/build/../audiosamples/house_BPM90.mp3
+    Estimated BPM: 89
+    --------------------------
+    == list of files whose BPM=120~140==
+    "/home/chikashi/Development/bpmf/build/../audiosamples/house_BPM125.mp3"
+
 
 ## How to use bpmf in the real world context
 
@@ -32,7 +52,7 @@ you can combine bpmf with find and xarg.
 
 > mkdir extract && find ~/ -name *.mp3  -printf '"%p" ' | xargs ./bpmf 120 140 | xargs -n 1 -I % cp % extract
 
-this command make extract folder, find all mp3 files under your home directory filter them with bpmf and copy it to extract directory
+this command make extract folder, find all mp3 files under your home directory filter them with bpmf and copy the filtered results to extract directory
 
 ## Program options
 
