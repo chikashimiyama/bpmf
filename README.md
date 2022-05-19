@@ -62,26 +62,27 @@ shows you the list of options
 
 ## Rubric Points
 
-- The project demonstrates an understanding of C++ functions and control structures.
-- The project reads data from a file and process the data, or the program writes data to a file.
-- The project accepts user input and processes the input.
-- The project uses Object Oriented Programming techniques.
-- Classes use appropriate access specifiers for class members.
-- Class constructors utilize member initialization lists.
-- Classes abstract implementation details from their interfaces.
-- Classes encapsulate behavior.
-- Derived class functions override virtual base class functions.
-- The project makes use of references in function declarations.
-- The project uses move semantics to move data, instead of copying it, where possible.
-- The project uses smart pointers instead of raw pointers.
-- The project uses multithreading.
-- A mutex or lock is used in the project.
+- The project demonstrates an understanding of C++ functions and control structures. (core/Main.cpp)
+- The project reads data from a file and process the data, or the program writes data to a file. (Track.cpp)
+- The project accepts user input and processes the input. (core/Main.cpp)
+- The project uses Object Oriented Programming techniques. (Track.cpp, Analyzer.cpp, Printer.cpp)
+- Classes use appropriate access specifiers for class members. (Track.cpp, Analyzer.cpp, Printer.cpp)
+- Class constructors utilize member initialization lists. (Printer.cpp)
+- Classes abstract implementation details from their interfaces. (Track.cpp, Analyzer.cpp, Printer.cpp)
+- Classes encapsulate behavior. (Track.cpp, Analyzer.cpp, Printer.cpp)
+- Derived class functions override virtual base class functions. (Track.h, Analyzer.h, VerbosePrinter.h, Printer.h)
+- The project makes use of references in function declarations. (Printer.h)
+- The project uses move semantics to move data, instead of copying it, where possible. (Factory.cpp)
+- The project uses smart pointers instead of raw pointers. (Factory.cpp)
+- The project uses multithreading. (Main.cpp)
+- A mutex or lock is used in the project. (Main.cpp)
 
 ## Dependencies
 
-- libboost-program-options-dev for parsing command line options
-- gtest (submodule) for unit tests
-- minibpm (submodule) for loading mp3 files
+- [libboost-program-options-dev](https://www.boost.org/doc/libs/1_58_0/doc/html/program_options.html) for parsing command line options
+- [googletest](https://github.com/google/googletest) for unit tests
+- [dr_libs](https://github.com/mackron/dr_libs) for loading mp3
+- [minibpm](https://github.com/breakfastquay/minibpm) for analyzing BPM
 
 ## File Structure
 
